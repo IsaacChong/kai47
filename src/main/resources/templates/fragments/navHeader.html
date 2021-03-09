@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="https://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+
+
+
+    <header th:fragment="navHeader" role="header">
+      <div class="container">
+        <h1 role="logo">
+          <a href="/" title="KAI"
+            ><img
+              src="/assets/images/kai-logo.png"
+              class="img-fluid"
+              title="KAI logo"
+              alt="KAI logo"
+          /></a>
+        </h1>
+
+        <div class="header-nav-wrapper"></div>
+
+        <nav role="header-nav" class="navy">
+          <ul>
+            <li>
+              <a href="/" title="Home">Home</a>
+            </li>
+            <li>
+              <a href="/about" title="About">About</a>
+            </li>
+            <li>
+              <span sec:authorize="isAuthenticated()">
+                <a href="/every-posts-by-single-user" title="Profile">Profile</a>
+              </span>
+
+            </li>
+            <li>
+              <span sec:authorize="isAuthenticated()">
+                <a href="/post-image" title="Publish">Publish</a>
+              </span>
+
+            </li>
+            <li>
+              <span sec:authorize="isAuthenticated()">
+                <form th:action="@{/logout}" method="post">
+                  <input
+                    type="submit"
+                    value="Sign Out"
+                    class="nav-link"
+                    style="background-color: transparent; border: 0px"
+                  />
+                </form>
+              </span>
+
+              <span sec:authorize="isAnonymous()">
+                <a href="/login">Sign in</a>
+              </span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <title>Post</title>
+    <link
+      rel="shortcut icon"
+      href="/assets/images/kai-favicon.ico"
+      type="image/icon type"
+    />
+    <link href="/assets/css/style.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/responsive.css" rel="stylesheet" />
+    <link href="/assets/css/fonts.css" rel="stylesheet" />
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/css/effects/grid.css" rel="stylesheet" />
+    <link href="/assets/css/effects/normalize.css" rel="stylesheet" />
+    <link href="/assets/css/effects/component.css" rel="stylesheet" />
+  </head>
+
+  <header th:insert="/fragments/navHeader.html :: navHeader"></header>
+
+  <body>
+
+    <main th:object="${post}" role="main-inner-wrapper" class="container">
+      <div class="blog-details">
+        <article class="post-details" id="post-details">
+          <header role="blog-header" class="blog-header text-center">
+            <h2 th:text="${post.title}"></h2>
+            <h3>by <span th:text="${user.username}"></span></h3>
+            <h4 th:text="${#dates.format(post.timestamp, 'dd-MMM-yyyy')}"></h4>
+          </header>
+
+          <figure>
+            <img
+              th:src="'/post/images/' + ${post.id}"
+              class="img-responsive"
+              alt=""
+            />
+          </figure>
+
+          <div th:utext="${post.content}" class="enter-content"></div>
+        </article>
+      </div>
+    </main>
+
+    <footer th:insert="/fragments/footer.html :: footer"></footer>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/nav.js"></script>
+    <script src="/assets/js/custom.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/effects/masonry.pkgd.min.js"></script>
+    <script src="/assets/js/effects/imagesloaded.js"></script>
+    <script src="/assets/js/effects/classie.js"></script>
+    <script src="/assets/js/effects/AnimOnScroll.js"></script>
+    <script src="/assets/js/effects/modernizr.custom.js"></script>
+    <script src="/assets/js/html5shiv.js"></script>
+    <!-- Start of ChatBot (www.chatbot.com) code -->
+    <script type="text/javascript">
+      window.__be = window.__be || {};
+      window.__be.id = "6035e33be778240007a0a640";
+      (function() {
+        var be = document.createElement('script'); be.type = 'text/javascript'; be.async = true;
+        be.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.chatbot.com/widget/plugin.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(be, s);
+      })();
+    </script>
+  </body>
+</html>
