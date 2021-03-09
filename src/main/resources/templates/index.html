@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
   <head>
     <meta
       name="viewport"
@@ -23,7 +24,10 @@
   </head>
 
   <body>
-<!--    <header th:replace="/fragments/navHeader.html :: navHeader"></header>-->
+    <header th:replace="/fragments/navHeader.html :: navHeader"></header>
+
+
+
 
     <main role="main-home-wrapper" class="container">
       <div class="row">
@@ -299,7 +303,7 @@
       </div>
     </main>
 
-<!--    <footer th:insert="/fragments/footer.html :: footer"></footer>-->
+    <footer th:insert="/fragments/footer.html :: footer"></footer>
 
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/nav.js"></script>
